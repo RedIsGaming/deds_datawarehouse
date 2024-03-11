@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "datawarehouse"
+version = "0.1.0"
+description = "A datawarehouse built in Python."
+authors = ["RedIsGaming <email>, deveolper <email>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+surrealdb = "^0.3.2"
+pandas = "^2.2.1"
+python-dotenv = "^1.0.1"
+pyodbc = "^5.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
