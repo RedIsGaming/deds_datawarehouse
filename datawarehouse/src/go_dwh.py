@@ -233,8 +233,3 @@ warehouse_4 = order_method_scd
 # Asserting everything
 for source, warehouse in zip([source_1, source_2, source_3, source_4], [warehouse_1, warehouse_2, warehouse_3, warehouse_4]):
     assert source.drop_duplicates().size == warehouse.drop_duplicates().size
-
-
-
-
-# %%
