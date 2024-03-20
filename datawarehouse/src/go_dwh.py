@@ -96,10 +96,9 @@ training = pd.read_sql_query("SELECT * FROM training", conn)
 satisfaction_type = pd.read_sql_query("SELECT * FROM satisfaction_type", conn)
 satisfaction = pd.read_sql_query("SELECT * FROM satisfaction", conn)
 returned_reason = pd.read_sql_query("SELECT * FROM returned_reason", conn)
-returned_item = pd.read_sql_query("SELECT * FROM returned_item", conn)
+returned_item = pd.read_sql_query("SELECT * FROM returned_item", conns[1])
 retailer_contact = pd.read_sql_query("SELECT * FROM retailer_contact", conn)
 order_method = pd.read_sql_query("SELECT * FROM order_method", conn)
-# order = pd.read_sql_query("SELECT * FROM order_", conn)
 
 df = retailer_contact
 
@@ -125,11 +124,14 @@ for name in ["product", "sales_product_forecast", "sales_inventory_levels", "sal
 
 
 # Merging source
+print(returned_item.columns)
+print(returned_reason.columns)
+
 source_1 = pd.merge(
     returned_reason,
     returned_item,
     left_on="return_reason_code",
-    right_on="returned_reason_code"
+    right_on="RETURN_REASON_CODE"
 )
 
 source_2 = pd.merge(
@@ -180,7 +182,7 @@ warehouse_1 = pd.merge(
     returned_reason_scd,
     returned_item_scd,
     left_on="return_reason_code",
-    right_on="returned_reason_code"
+    right_on="RETURN_REASON_CODE"
 )
 
 warehouse_2 = pd.merge(
