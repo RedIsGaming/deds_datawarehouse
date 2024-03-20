@@ -23,7 +23,7 @@ def main():
 
     plt.xlabel('Producten')
     plt.ylabel('Prijs')
-    plt.title('Staafdiagram van Productprijzen')
+    plt.title('Staafdiagram van productiekosten')
 
     plt.bar(product["PRODUCT_NAME"], product["PRODUCTION_COST"])
 
