@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 import go_dwh
 
@@ -8,7 +9,6 @@ product = pd.read_sql_query("SELECT * FROM product", go_dwh.conns[1])
 
 
 def main():
-    import matplotlib.pyplot as plt
     print("Overzicht van alle werkelijke orders:")
     for row in order_details.iterrows():
         print(row)
